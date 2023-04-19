@@ -1,146 +1,162 @@
-package abc;
+
 
 
 import java.util.*;
 
-public class Main {
+public class ass21{
 
-public static void main(String[] args) {
+    public static void main(String[] args) {
 
 // TODO Auto-generated method stub
+        Scanner s=new Scanner(System.in);
 
-weather[] w=new weather[5];
 
-int i;
+        weather[] w=new weather[5];
 
-for(i=0;i<5;i++)
+        int i;
 
-{
+        for(i=0;i<5;i++)
 
-w[i]=new weather();
+        {
+            w[i]=new weather();
 
-w[i].get();
 
-}
+        }
+        for(i=0;i<5;i++)
 
-float sumh=0,suml=0,sumr=0,sums=0;
+        {
+            System.out.println("Enter data for day"+(i+1));
 
-for(i=0;i<5;i++)
+            System.out.print("Enter high temprature");
 
-{
+            float h=s.nextFloat();
 
-sumh+=w[i].getHighTemp();
+            System.out.print("Enter low temprature");
 
-}
+            float l=s.nextFloat();
 
-System.out.println("Average of high temprature is "+sumh/5);
+            System.out.print("Enter amount of rain");
 
-for(i=0;i<5;i++)
+            float ar=s.nextFloat();
 
-{
+            System.out.print("Enter amount of snow");
 
-suml+=w[i].getLowTemp();
+            float as=s.nextFloat();
 
-}
+            System.out.println();
 
-System.out.println("Average of high temprature is "+suml/5);
 
-for(i=0;i<5;i++)
 
-{
+            w[i]=new weather(h,l,ar,as);
 
-sumr+=w[i].getAmountRain();
 
-}
+        }
 
-System.out.println("Average of high temprature is "+sumr/5);
+        float sumh=0,suml=0,sumr=0,sums=0;
 
-for(i=0;i<5;i++)
+        for(i=0;i<5;i++)
 
-{
+        {
 
-sums+=w[i].getAmountSnow();
+            sumh+=w[i].getHighTemp();
 
-}
+        }
 
-System.out.println("Average of high temprature is "+sums/5);
+        System.out.println("Average of high temprature is "+sumh/5);
 
-}
+        for(i=0;i<5;i++)
+
+        {
+
+            suml+=w[i].getLowTemp();
+
+        }
+
+        System.out.println("Average of high temprature is "+suml/5);
+
+        for(i=0;i<5;i++)
+
+        {
+
+            sumr+=w[i].getAmountRain();
+
+        }
+
+        System.out.println("Average of high temprature is "+sumr/5);
+
+        for(i=0;i<5;i++)
+
+        {
+
+            sums+=w[i].getAmountSnow();
+
+        }
+
+        System.out.println("Average of high temprature is "+sums/5);
+
+    }
 
 }
 
 class weather{
 
-float dayOfMonth,highTemp,lowTemp,amountRain,amountSnow;
+    float dayOfMonth,highTemp,lowTemp,amountRain,amountSnow;
 
-Scanner s=new Scanner(System.in);
+    Scanner s=new Scanner(System.in);
 
-weather()
+    weather()
 
-{
+    {
 
-dayOfMonth=0;
 
-highTemp=0;
+        highTemp=0;
 
-lowTemp=0;
+        lowTemp=0;
 
-amountRain=0;
+        amountRain=0;
 
-amountSnow=0;
+        amountSnow=0;
 
-}
+    }
+    weather(float h,float l,float ar,float as)
 
-public void get()
+    {
 
-{
 
-System.out.print("Enter day of month");
+        highTemp=h;
 
-this.dayOfMonth=s.nextFloat();
+        lowTemp=l;
 
-System.out.print("Enter high temprature");
+        amountRain=ar;
 
-this.highTemp=s.nextFloat();
+        amountSnow=as;
 
-System.out.print("Enter low temprature");
+    }
 
-this.lowTemp=s.nextFloat();
 
-System.out.print("Enter amount of rain");
 
-this.amountRain=s.nextFloat();
+    public float getHighTemp() {
 
-System.out.print("Enter amount of snow");
+        return highTemp;
 
-this.amountSnow=s.nextFloat();
+    }
 
-System.out.println();
+    public float getLowTemp() {
 
-}
+        return lowTemp;
 
-public float getHighTemp() {
+    }
 
-return highTemp;
+    public float getAmountRain() {
 
-}
+        return amountRain;
 
-public float getLowTemp() {
+    }
 
-return lowTemp;
+    public float getAmountSnow() {
 
-}
+        return amountSnow;
 
-public float getAmountRain() {
-
-return amountRain;
-
-}
-
-public float getAmountSnow() {
-
-return amountSnow;
-
-}
+    }
 
 }
